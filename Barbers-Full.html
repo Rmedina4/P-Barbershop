@@ -93,7 +93,7 @@
                 <!-- <h2><u>THE BARBERSHOP TEAM </u></h2> -->
                 <p>Click on any of these barbers to schedule your appointment</p>
             </center>
-            <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            <div class="row gx-0 mb-5 mb-lg-0 justify-content-center id=" barberContainer">
                 <div class="col-lg-3 mb-4">
                     <div class="text-center">
                         <img class="img-fluid rounded-circle" src="assets/img/kevin.jpeg" alt="Kevin's Picture" />
@@ -270,7 +270,8 @@
                                     <option value="google">Google Maps</option>
                                 </select>
                                 <br>
-                                <a id="mapLink" href="#">Open in Maps</a>
+                                <a id="mapLink" href="maps://maps.apple.com/?q=10255+Ferguson+Rd,+Dallas,+TX+75228">Open
+                                    in Maps</a>
                             </div>
                         </div>
                         <script>
@@ -294,6 +295,10 @@
                                         mapLink.textContent = "Open in Google Maps";
                                     }
                                 });
+
+
+
+
                             });
                         </script>
 
