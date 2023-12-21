@@ -166,28 +166,36 @@
                             <h4 class="text-uppercase m-0">Address</h4>
                             <hr class="my-4 mx-auto" />
                             <div class="small text-black-50">
+                                <label for="mapSelect">Choose a map:</label>
+                                <select id="mapSelect">
+                                    <option value="apple">Apple Maps</option>
+                                    <option value="google">Google Maps</option>
+                                </select>
+                                <br>
                                 <a id="mapLink" href="#">Open in Maps</a>
                             </div>
                         </div>
                         <script>
                             document.addEventListener("DOMContentLoaded", function () {
+                                var mapSelect = document.getElementById("mapSelect");
                                 var mapLink = document.getElementById("mapLink");
 
-                                // Check if the device is an iOS device (iPhone, iPad, iPod)
-                                var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-                                // Set the address based on the user's device
+                                // Set the address
                                 var address = "10255+Ferguson+Rd,+Dallas,+TX+75228";
 
-                                if (isIOS) {
-                                    // Apple Maps link
-                                    mapLink.href = "maps://maps.apple.com/?q=" + address;
-                                    mapLink.textContent = "Open in Apple Maps";
-                                } else {
-                                    // Google Maps link
-                                    mapLink.href = "https://www.google.com/maps?q=" + address;
-                                    mapLink.textContent = "Open in Google Maps";
-                                }
+                                // Update the link based on user selection
+                                mapSelect.addEventListener("change", function () {
+                                    var selectedMap = mapSelect.value;
+                                    if (selectedMap === "apple") {
+                                        // Apple Maps link
+                                        mapLink.href = "maps://maps.apple.com/?q=" + address;
+                                        mapLink.textContent = "Open in Apple Maps";
+                                    } else {
+                                        // Google Maps link
+                                        mapLink.href = "https://www.google.com/maps?q=" + address;
+                                        mapLink.textContent = "Open in Google Maps";
+                                    }
+                                });
                             });
                         </script>
 
