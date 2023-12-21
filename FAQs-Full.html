@@ -157,16 +157,39 @@
                     <div class="card py-4 h-100">
 
 
+
+
+
+
                         <div class="card-body text-center">
                             <i class="fas fa-map-marked-alt text-primary mb-2"></i>
                             <h4 class="text-uppercase m-0">Address</h4>
                             <hr class="my-4 mx-auto" />
-                            <div class="small text-black-50"><a
-                                    href="https://www.google.com/maps/place/10255+Ferguson+Rd,+Dallas,+TX+75228/@32.8335846,-96.6748775,19z/data=!3m1!4b1!4m15!1m8!3m7!1s0x864ea14801e6a947:0xbd641e3bf32c38e7!2s10255+Ferguson+Rd,+Dallas,+TX+75228!3b1!8m2!3d32.8335835!4d-96.6742338!16s%2Fg%2F11qg0ydr07!3m5!1s0x864ea14801e6a947:0xbd641e3bf32c38e7!8m2!3d32.8335835!4d-96.6742338!16s%2Fg%2F11qg0ydr07?entry=ttu">10255
-                                    FERGUSON RD, DALLAS, TX 75228</a></div>
+                            <div class="small text-black-50">
+                                <a id="mapLink" href="#">Open in Maps</a>
+                            </div>
                         </div>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                var mapLink = document.getElementById("mapLink");
 
+                                // Check if the device is an iOS device (iPhone, iPad, iPod)
+                                var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
+                                // Set the address based on the user's device
+                                var address = "10255+Ferguson+Rd,+Dallas,+TX+75228";
+
+                                if (isIOS) {
+                                    // Apple Maps link
+                                    mapLink.href = "maps://maps.apple.com/?q=" + address;
+                                    mapLink.textContent = "Open in Apple Maps";
+                                } else {
+                                    // Google Maps link
+                                    mapLink.href = "https://www.google.com/maps?q=" + address;
+                                    mapLink.textContent = "Open in Google Maps";
+                                }
+                            });
+                        </script>
 
 
 
